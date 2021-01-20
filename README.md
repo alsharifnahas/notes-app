@@ -82,5 +82,8 @@ Run `npm test` to run tests via the npm jest package.
 
 ## Contact
 
-You can contact me at alsharifeid@gmail.com. <hr>
+You can contact me at alsharifeid@gmail.com. <br>
 You can also view my GitHub profile at https://github.com/alsharifnahas
+
+<hr>
+© 2020 Alsharif Nahas. Confidential and Proprietary. All Rights Reserved.
