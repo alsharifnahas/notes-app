@@ -32,11 +32,13 @@ Copy the link of the repository from the clone button, then run `git clone "the 
 
 ## Usage
 
-1. To start using this app, simply start typing in the **Note Title** and **Note Text** fields. Once your are done with the note hit the save button, and the new note will appear on the side. Click on the pencil button to add a new note.
+To start using this app, simply start typing in the **Note Title** and **Note Text** fields. Once your are done with the note hit the save button, and the new note will appear on the side. Click on the pencil button to add a new note.
 
 <hr>
 **This is the landing page**
+
 ![Screenshot of Note Taker application. This is the landing page](public/assets/images/screen-shot-1.PNG)
+
 <hr>
 
 **The page where the notes can be taken**
