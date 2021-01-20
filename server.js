@@ -26,34 +26,52 @@ app.get("/api/notes", function (req, res) {
     });
 });
 
+
+// Post request to store the new notes to the JSON file
 app.post("/api/notes", (req, res) => {
 
+    // Reads the JSON file
+    // and stores the read data to a new array of objects.
     fs.readFile("./db/db.json", (err, data) => {
         if (err) throw err;
         let notesArray = JSON.parse(data);
         let newNoteObject = req.body;
         newNoteObject.id = uuidv4();
+
+        // the new notes that is pulled from the request gets pushed to the end of the array
+        // and updates the array with the new and old notes data
         notesArray.push(newNoteObject);
 
-
+        // writes the updated array to the JSON file
         fs.writeFile('./db/db.json', JSON.stringify(notesArray), err => {
             if (err) throw err;
             console.log("Data Written");
         })
+
+        // note to make sure that the data is stored
         res.send("Note has been saved");
     });
 })
 
+
+// Delete request to delete the desired note by ID
 app.delete("/api/notes/:id", (req, res) => {
+
+    // id pulled from the route parameter
     let id = req.params.id;
+
+    // Reads the JSON file to store the note inside of an object array
     fs.readFile("./db/db.json", (err, data) => {
         if (err) throw err;
         let notesArray = JSON.parse(data);
+
+        // The new array leaves the note object with the matching Id out
+        // therefore the new array does not contain the note that is supposed to be deleted.
         let newNotesArray = notesArray.filter(note => {
             return note.id != id
         });
 
-
+        // Write the new array to JSON file
         fs.writeFile('./db/db.json', JSON.stringify(newNotesArray), err => {
             if (err) throw err;
             console.log("Data has been deleted");
